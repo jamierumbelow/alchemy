@@ -36,7 +36,7 @@ You define a set of sample records (in JSON format). Create a file called `fixtu
       }
     }
 
-We also need to specify the tests and expected results. Create a file called `index_name.tests.json`:
+We also need to specify the tests and expected results. Create a file called `index_name.test.json`:
 
     [
       {
@@ -65,7 +65,7 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
       "searchKey": "algolia search key here",
       "secretKey": "algolia secret key here",
       "fixtures": "./fixtures.json",
-      "tests": "./index_name.tests.json"
+      "tests": "./index_name.test.json"
     }
 
 ...and run the tool against one (or many) indexes:

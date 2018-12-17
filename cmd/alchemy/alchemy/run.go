@@ -1,7 +1,6 @@
 package alchemy
 
 import (
-	"errors"
 	"fmt"
 	"strings"
 
@@ -9,18 +8,9 @@ import (
 )
 
 // Run the main Alchemy tests
-func Run(c *cli.Context) error {
-	var indexes []string
-	if c.NArg() == 1 {
-		indexes = append(indexes, c.Args()[0])
-	} else if c.NArg() > 1 {
-		indexes = append(indexes, c.Args()...)
-	}
+func Run(params Parameters, c *cli.Context) error {
+	fmt.Print(params)
+	fmt.Printf("Pushing to indexes: %s", strings.Join(params.Indexes, ","))
 
-	if len(indexes) > 1 {
-		return errors.New("ERROR: Alchemy currently only supports running tests against a single index")
-	}
-
-	fmt.Printf("Pushing to indexes: %s", strings.Join(indexes, ","))
 	return nil
 }

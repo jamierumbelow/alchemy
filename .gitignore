@@ -11,4 +11,10 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 
+# dep
 vendor
+
+# testing files
+.alchemyrc
+fixtures.json
+test_index.test.json
