@@ -5,7 +5,9 @@ An acceptance testing tool for Algolia indexes
 
 Algolia's index settings are flexible, interrelated, and very easy to change. It can be tempting to fix small relevance problems by tweaking custom ranking or query rules settings, and break results elsewhere.
 
-This is where `alchemy` comes in. You define a set of sample records (in JSON format). Create a file called `fixtures.json`:
+This is where `alchemy` comes in.
+
+You define a set of sample records (in JSON format). Create a file called `fixtures.json`:
 
     {
       "beuller": {
@@ -69,3 +71,19 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
 ...and run the tool against one (or many) indexes:
 
     $ alchemy index_name
+
+
+# Building / contributing
+
+Make sure you have [dep](https://github.com/golang/dep) installed. Run `dep ensure` to check out the dependencies:
+
+    $ dep ensure
+
+Install and run:
+
+    $ go install
+    $ alchemy index_name
+
+Or just run:
+
+    $ go run . index_name
