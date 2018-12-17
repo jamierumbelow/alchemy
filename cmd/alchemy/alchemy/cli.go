@@ -27,7 +27,12 @@ func New(version string) *CliApp {
 	io.Version = version
 	io.Usage = "An acceptance testing tool for Algolia indexes"
 	io.Flags = flags
-	io.Action = Run
+
+	if len(os.Args) > 1 {
+		io.Action = Run
+	} else {
+		io.Action = cli.ShowAppHelp
+	}
 
 	cliApp := CliApp{Io: io}
 
