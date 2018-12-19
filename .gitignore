@@ -13,6 +13,7 @@
 
 # dep
 vendor
+.vscode
 
 # testing files
 .alchemyrc

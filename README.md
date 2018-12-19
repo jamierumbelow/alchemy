@@ -81,11 +81,11 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
 
 ## To Do
 
-- [] Coloured output
-- [] Filters in query object
-- [] _Tests_
-- [] Advance query rule tests
-- [] More validation for `indexName` (ensure its length is < 256 - timestamp length (10) - `len('alchemy__')`)
+- [ ] Coloured output
+- [ ] Filters in query object
+- [ ] _Tests_
+- [ ] Advance query rule tests
+- [ ] More validation for `indexName` (ensure its length is < 256 - timestamp length (10) - `len('alchemy__')`)
 
 
 ## Building / contributing

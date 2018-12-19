@@ -36,7 +36,11 @@ func Run(params Parameters, c *cli.Context) error {
 		for _, test := range tests {
 			passes, err := test.Passes(tmpIndex)
 			if !passes {
-				output.Failure(test, err.Error())
+				if err != nil {
+					output.Failure(test, err.Error())
+				} else {
+					output.Failure(test, "unknown error")
+				}
 			} else {
 				output.Success(test)
 			}
@@ -64,6 +68,8 @@ func createTmpIndex(client algoliasearch.Client, runKey string, indexName string
 }
 
 func addObjects(index algoliasearch.Index, fixtures []algoliasearch.Object) ([]algoliasearch.Object, error) {
-	_, err := index.AddObjects(fixtures)
+	res, err := index.AddObjects(fixtures)
+	err = index.WaitTask(res.TaskID)
+
 	return fixtures, err
 }
