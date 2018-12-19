@@ -5,7 +5,33 @@ An acceptance testing tool for Algolia indexes
 
 Algolia's index settings are flexible, interrelated, and very easy to change. It can be tempting to fix small relevance problems by tweaking custom ranking or query rules settings, and break results elsewhere.
 
-This is where `alchemy` comes in.
+This is where `alchemy` comes in: you can now run acceptance tests against a set of index settings.
+
+
+
+## Go Environment setup
+
+Get Go and [dep](https://github.com/golang/dep) installed:
+
+    $ brew install go dep
+
+Run `dep ensure` to check out the dependencies:
+
+    $ dep ensure
+
+Install and run:
+
+    $ go install
+    $ alchemy index_name
+
+Or just run:
+
+    $ go run . index_name
+
+
+## How to Use
+
+Create a blank index called `test_index`.
 
 You define a set of sample records (in JSON format). Create a file called `fixtures.json`:
 
@@ -74,9 +100,20 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
       "tests": "./index_name.test.json"
     }
 
-...and run the tool against one (or many) indexes:
+...and run the tool against the index to see the results:
 
     $ alchemy index_name
+        ✔ "off"
+        ✖ "" [year < 1990]
+                - Expected results weren't returned
+        ✔ "off" [year < 1990]
+
+Try adding `box_office` as a descending custom ranking attribute and run it again:
+
+    $ alchemy index_name
+        ✔ "off"
+        ✔ "" [year < 1990]
+        ✔ "off" [year < 1990]
 
 
 ## To Do
@@ -88,19 +125,3 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
 - [ ] _Tests_
 - [ ] Advance query rule tests
 - [ ] More validation for `indexName` (ensure its length is < 256 - timestamp length (10) - `len('alchemy__')`)
-
-
-## Building / contributing
-
-Make sure you have [dep](https://github.com/golang/dep) installed. Run `dep ensure` to check out the dependencies:
-
-    $ dep ensure
-
-Install and run:
-
-    $ go install
-    $ alchemy index_name
-
-Or just run:
-
-    $ go run . index_name
