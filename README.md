@@ -57,10 +57,10 @@ We also need to specify the tests and expected results. Create a file called `in
       },
       {
         "query": {
-          "query": "thompson",
+          "query": "off",
           "filters": "year < 1990"
         },
-        "expectedResults": [ "b2tf" ]
+        "expectedResults": [ "beuller" ]
       }
     ]
 
@@ -81,7 +81,9 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
 
 ## To Do
 
-- [ ] Coloured output
+- [ ] Rewrite in JavaScript
+- [x] Coloured output
+- [ ] Better error output
 - [ ] Filters in query object
 - [ ] _Tests_
 - [ ] Advance query rule tests
