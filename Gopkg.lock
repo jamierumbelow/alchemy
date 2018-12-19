@@ -2,6 +2,25 @@
 
 
 [[projects]]
+  digest = "1:8e380c421170c601ad6fafca32715ed5510a5929cad1f3cb498470953e1b0231"
+  name = "github.com/algolia/algoliasearch-client-go"
+  packages = [
+    "algoliasearch",
+    "algoliasearch/call",
+  ]
+  pruneopts = "UT"
+  revision = "1c0b06b9e47a0110de105eeb0aa2fdeda6e4a422"
+  version = "2.27.0"
+
+[[projects]]
+  branch = "master"
+  digest = "1:be40f095cd741773905744f16c1f7a21fd9226ccd0529f019deb7da6d667f71c"
+  name = "github.com/logrusorgru/aurora"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "a7b3b318ed4e1ae5b80602b08627267303c68572"
+
+[[projects]]
   digest = "1:b24d38b282bacf9791408a080f606370efa3d364e4b5fd9ba0f7b87786d3b679"
   name = "github.com/urfave/cli"
   packages = ["."]
@@ -12,6 +31,10 @@
 [solve-meta]
   analyzer-name = "dep"
   analyzer-version = 1
-  input-imports = ["github.com/urfave/cli"]
+  input-imports = [
+    "github.com/algolia/algoliasearch-client-go/algoliasearch",
+    "github.com/logrusorgru/aurora",
+    "github.com/urfave/cli",
+  ]
   solver-name = "gps-cdcl"
   solver-version = 1

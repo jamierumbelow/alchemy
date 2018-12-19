@@ -9,32 +9,38 @@ This is where `alchemy` comes in.
 
 You define a set of sample records (in JSON format). Create a file called `fixtures.json`:
 
-    {
-      "beuller": {
+    [
+      {
+        "objectID": "beuller",
         "name": "Ferris Beuller's Day Off",
         "leads": ["Matthew Broderick", "Alan Ruck", "Mia Sara"],
         "year": 1986,
         "box_office": 70136369
       },
-      "b2tf": {
+      {
+        "objectID": "b2tf",
         "name": "Back to the Future",
         "leads": ["Michael J. Fox", "Christopher Lloyd", "Lea Thompson"],
         "year": 1985,
         "box_office": 210609762
       },
-      "pulp_fiction": {
+      {
+        "objectID": "pulp_fiction",
         "name": "Pulp Fiction",
         "leads": ["John Travolta", "Uma Thurman"],
         "year": 1994,
         "box_office": 107928762
       },
-      "faceoff": {
+      {
+        "objectID": "faceoff",
         "name": "Face/Off",
         "leads": ["John Travolta", "Nicholas Cage"],
         "year": 1997,
         "box_office": 112225777
       }
-    }
+    ]
+
+It's better to use something human-friendly for your fixtures' `objectID`; we'll use them to specify expected results in a moment.
 
 We also need to specify the tests and expected results. Create a file called `index_name.test.json`:
 
@@ -73,7 +79,16 @@ Configure the `alchemy` tool with an `.alchemyrc` file in your current directory
     $ alchemy index_name
 
 
-# Building / contributing
+## To Do
+
+- [] Coloured output
+- [] Filters in query object
+- [] _Tests_
+- [] Advance query rule tests
+- [] More validation for `indexName` (ensure its length is < 256 - timestamp length (10) - `len('alchemy__')`)
+
+
+## Building / contributing
 
 Make sure you have [dep](https://github.com/golang/dep) installed. Run `dep ensure` to check out the dependencies:
 

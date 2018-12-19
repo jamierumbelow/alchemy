@@ -27,13 +27,6 @@ type Parameters struct {
 	ConfigValues AlchemyRC
 }
 
-// {
-// 	"appId": "algolia app ID here",
-// 	"searchKey": "algolia search key here",
-// 	"secretKey": "algolia secret key here",
-// 	"fixtures": "./fixtures.json",
-// 	"tests": "./index_name.tests.json"
-// }
 // AlchemyRC represents our .alchemyrc configuration file
 type AlchemyRC struct {
 	AppID        string `json:"appId"`
@@ -122,6 +115,7 @@ func validate(then func(params Parameters, c *cli.Context) error) func(c *cli.Co
 		if err != nil {
 			return err
 		}
+
 		parser := json.NewDecoder(configFile)
 		parser.Decode(&configValues)
 
